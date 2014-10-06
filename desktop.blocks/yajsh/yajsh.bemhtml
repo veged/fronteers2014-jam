@@ -1,0 +1,3 @@
+block('yajsh').def()(function() {
+    this._buf.push(require('yajsh').toHtml(this.ctx.content));
+})
