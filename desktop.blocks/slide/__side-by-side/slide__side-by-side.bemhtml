@@ -6,10 +6,12 @@ block('slide').elem('side-by-side')(
             content : [
                 {
                     tag : 'td',
+                    attrs : { style : 'padding-right: 1.5em;' },
                     content : this.ctx.left
                 },
                 {
                     tag : 'td',
+                    attrs : { style : 'padding-left: 1.5em;' },
                     content : this.ctx.right
                 }
             ]
