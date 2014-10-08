@@ -6,7 +6,9 @@ provide(BEMDOM.decl({ block : this.name }, {
         'js' : {
             'inited' : function() {
                 this._slides = this.findBlocksInside('slide');
-                this.bindToDoc('keydown', this._onKeyDown)
+                this
+                    .bindToDoc('keydown', this._onKeyDown)
+                    .bindToDoc('click dblclick', this._onClick)
                     .bindToWin('hashchange', this._onHashChange)
                     ._onHashChange();
             }
@@ -33,10 +35,6 @@ provide(BEMDOM.decl({ block : this.name }, {
         return this.setCurrent(this._currentSlideIndex - 1);
     },
 
-    _onHashChange : function(e) {
-        return this.setCurrent(getSlideFromLocation());
-    },
-
     _onKeyDown : function(e) {
         var keyCode = e.keyCode,
             isNext = keyCode === keyCodes.DOWN || keyCode === keyCodes.RIGHT,
@@ -48,6 +46,34 @@ provide(BEMDOM.decl({ block : this.name }, {
             isPrev && this.prev();
             isNext && this.next();
         }
+    },
+
+    _onClick : function(e) {
+        var view = $(e.view),
+            width = view.width(),
+            height = view.height(),
+            width3 = width / 3,
+            height3 = height / 3,
+            x = e.pageX,
+            y = e.pageY;
+
+        if(x > width3 && x < width3 * 2) {
+            if(y < height3)
+                    this.prev();
+                else if(y > height3 * 2)
+                    this.next();
+        }
+
+        if(y > height3 && y < height3 * 2) {
+            if(x < width3)
+                    this.prev();
+                else if(x > width3 * 2)
+                    this.next();
+        }
+    },
+
+    _onHashChange : function(e) {
+        return this.setCurrent(getSlideFromLocation());
     }
 }));
 
