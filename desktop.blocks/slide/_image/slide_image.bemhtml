@@ -1,0 +1,5 @@
+block('slide').mod('image', true).attrs()(function() {
+    return {
+        style : 'background-image: url(' + this.ctx.image + ');'
+    }
+})

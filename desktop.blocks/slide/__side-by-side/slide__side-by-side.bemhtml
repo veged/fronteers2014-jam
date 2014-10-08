@@ -1,0 +1,18 @@
+block('slide').elem('side-by-side')(
+    tag()('table'),
+    content()(function() {
+        return {
+            tag : 'tr',
+            content : [
+                {
+                    tag : 'td',
+                    content : this.ctx.left
+                },
+                {
+                    tag : 'td',
+                    content : this.ctx.right
+                }
+            ]
+        }
+    })
+)

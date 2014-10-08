@@ -6,9 +6,9 @@ provide(BEMDOM.decl({ block : this.name }, {
         'js' : {
             'inited' : function() {
                 this._slides = this.findBlocksInside('slide');
-                this
-                    .bindToDoc('keydown', this._onKeyDown)
-                    .setCurrent(0);
+                this.bindToDoc('keydown', this._onKeyDown)
+                    .bindToWin('hashchange', this._onHashChange)
+                    ._onHashChange();
             }
         }
     },
@@ -21,6 +21,7 @@ provide(BEMDOM.decl({ block : this.name }, {
             var slides = this._slides;
             typeof oldIndex !== 'undefined' && slides[oldIndex].delMod('current');
             newIndex <= slides.length - 1 && slides[newIndex].setMod('current');
+            window.location.hash = newIndex;
         }
     },
 
@@ -30,6 +31,10 @@ provide(BEMDOM.decl({ block : this.name }, {
 
     prev : function() {
         return this.setCurrent(this._currentSlideIndex - 1);
+    },
+
+    _onHashChange : function(e) {
+        return this.setCurrent(getSlideFromLocation());
     },
 
     _onKeyDown : function(e) {
@@ -45,5 +50,11 @@ provide(BEMDOM.decl({ block : this.name }, {
         }
     }
 }));
+
+function getSlideFromLocation() {
+    var hash = window.location.hash,
+        match = hash.match(/^#(\d+)$/);
+    return match? Number(match[1]) : 0
+}
 
 });
