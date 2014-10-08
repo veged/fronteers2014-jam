@@ -18,7 +18,14 @@ return {
             {
                 tag : 'center',
                 content : [
-                    { tag : 'h1', content : 'Colors and Shapes' },
+                    {
+                        tag : 'h1',
+                        content : [
+                            { block : 'text-fx', mods : { type : 'color' }, content : 'Colors' },
+                            ' and ',
+                            { block : 'text-fx', mods : { type : 'case' }, content : 'Shapes' },
+                        ]
+                    },
                     { tag : 'h2', content : 'ideas for work with JavaScript syntax' },
                     { tag: 'br' }, { tag: 'br' }, { tag: 'br' }, { tag: 'br' },
                     { tag : 'h3', content : 'Sergey @veged Berezhnoy' },
@@ -31,8 +38,8 @@ return {
                     elem : 'side-by-side',
                     left : { tag : 'img', attrs : { src : 'veged.jpg', height : 254 } },
                     right : [
-                        { tag : 'h3', content : 'Sergey Berezhnoy' },
-                        { tag : 'h4', content : '@veged' }
+                        { tag : 'h2', content : 'Sergey Berezhnoy' },
+                        { tag : 'h3', content : '@veged' }
                     ]
                 },
             ],
@@ -42,7 +49,7 @@ return {
                     left : { tag : 'img', attrs : { src : 'yandex.svg', height : 150 } },
                     right : { tag : 'img', attrs : { src : 'b_.svg', height : 200 } }
                 },
-            { tag : 'h1', content: 'Colors' },
+            { tag : 'h1', content : { block : 'text-fx', mods : { type : 'color' }, content : 'Colors' } },
                 {
                     block : 'slide',
                     mods : { image: true },
@@ -55,44 +62,56 @@ return {
                     block : 'slide',
                     mods : { image: true },
                     image : 'colors_4.jpg',
-                    content : { tag : 'h1', content : 'colors bring happines' }
+                    content : {
+                        tag : 'h1',
+                        content : [
+                            { block : 'text-fx', mods : { type : 'color' }, content : 'colors' },
+                            ' bring happines'
+                        ]
+                    }
                 },
                 [
-                    { tag : 'h2', content : 'Yet Another JavaScript Highlighter' },
-                    { tag : 'h3', content : { tag : 'a', attrs : { href : 'https://github.com/veged/yajsh' }, content : 'github.com/veged/yajsh' } },
+                    { tag : 'h1', content : 'Yet Another JavaScript Highlighter' },
+                    { tag : 'h2', content : { tag : 'a', attrs : { href : 'https://github.com/veged/yajsh' }, content : 'github.com/veged/yajsh' } },
                     { tag : 'br' }, { tag : 'br' },
-                    { tag : 'h3', content : 'highlighting can be more detailed and nuanced' },
-                    { tag : 'h2', content : 'semantics aware!' }
+                    {
+                        tag : 'h2',
+                        content : [
+                            { block : 'text-fx', mods : { type : 'color' }, content : 'highlighting' },
+                            ' can be more detailed and nuanced'
+                        ]
+                    },
+                    { tag : 'h1', content : 'semantics aware!' }
                 ],
                     [
-                            { tag : 'h3', content: 'square brackets' },
+                            { tag : 'h1', content: 'square brackets' },
                             { block : 'yajsh', content : '[1, 2, 3]' },
                             { block : 'yajsh', content : '[1, 2, 3][2]' }
                     ],
                     [
-                        { tag : 'h3', content: 'curly brackets' },
+                        { tag : 'h1', content: 'curly braces' },
                         { block : 'yajsh', content : '{ a: 1 }' },
                         { block : 'yajsh', content : 'function() { return { a: 1 } }' }
                     ],
                     [
-                        { tag : 'h3', content: 'round brackets' },
+                        { tag : 'h1', content: 'parentheses' },
                         { block : 'yajsh', content : 'alert(1)' },
                         { block : 'yajsh', content : 'alert((1 + 2) * 3)' }
                     ],
                     [
-                        { tag : 'h3', content: 'declarations' },
+                        { tag : 'h1', content: 'declarations' },
                         { block : 'yajsh', content : 'var a = 1, b = 2;' },
                         { block : 'yajsh', content : 'function f(x) { return x }' }
                     ],
                     [
-                        { tag : 'h3', content: 'commas' },
+                        { tag : 'h1', content: 'commas' },
                         { block : 'yajsh', content : '[1, 2, 3]' },
                         { block : 'yajsh', content : '{ a: 1, b: 2, c: 3 }' },
                         { block : 'yajsh', content : 'var a = 1, b = 2;' },
                         { block : 'yajsh', content : 'function f(x, y) { return x + y }' }
                     ],
                     [
-                        { tag : 'h3', content: 'Statements' },
+                        { tag : 'h1', content: 'statements' },
                         { block : 'yajsh', content : 'if(a) f(1) else f(2)' },
                         { block : 'yajsh', content : 'while(true) f()' },
                         { block : 'yajsh', content : 'try { f() } catch(e) { console.log(e) }' }
@@ -103,7 +122,7 @@ return {
                     image : 'colors_5.jpg',
                     content : { tag : 'h1', content : 'same idea for different editors and tools' }
                 },
-            { tag : 'h1', content: 'Shapes' },
+            { tag : 'h1', content : { block : 'text-fx', mods : { type : 'case' }, content : 'Shapes' } },
                 {
                     block : 'slide',
                     mods : { image: true },
@@ -126,18 +145,34 @@ return {
                     block : 'slide',
                     mods : { image: true },
                     image : 'shapes_4.jpg',
-                    content : { tag : 'h1', content : 'very few tools for deeper structural code shaping' }
+                    content : {
+                        tag : 'h1',
+                        content : [
+                            'very few tools for deeper structural code ',
+                            { block : 'text-fx', mods : { type : 'case' }, content : 'shaping' },
+                        ]
+                    }
                 },
                 [
-                    { tag : 'h2', content : 'Krasota.js' },
-                    { tag : 'h3', content : { tag : 'a', attrs : { href : 'https://github.com/veged/krasota.js' }, content : 'github.com/veged/krasota.js' } }
+                    { tag : 'h1', content : 'Krasota.js' },
+                    { tag : 'h2', content : { tag : 'a', attrs : { href : 'https://github.com/veged/krasota.js' }, content : 'github.com/veged/krasota.js' } },
+                    { tag : 'br' }, { tag : 'br' },
+                    {
+                        tag : 'h2',
+                        content : [
+                            'code can be ',
+                            { block : 'text-fx', mods : { type : 'case' }, content : 'reshaped' },
+                            ' intelligently'
+                        ]
+                    },
+                    { tag : 'h1', content : 'automagically!' }
                 ],
                     [
                         { tag : 'h3', content : 'indents and trailing spaces' },
                         {
                             elem : 'side-by-side',
-                            left : { block : 'yajsh', content : '{\n  a: 1,\n   b: 2,\n  c: 3\n}' },
-                            right : { block : 'yajsh', content : '{\n  a: 1,\n  b: 2,\n  c: 3\n}' },
+                            left : { block : 'yajsh', content : '{\n    a: 1,\n     b: 2,\n    c: 3\n}' },
+                            right : { block : 'yajsh', content : '{\n    a: 1,\n    b: 2,\n    c: 3\n}' },
                         },
                     ],
                     [
@@ -170,8 +205,22 @@ return {
                     mods : { image: true },
                     image : 'shapes_6.jpg',
                     content : [
-                        { tag : 'h2', content : 'you can personalise code shape for viewers' },
-                        { tag : 'h1', content : 'as well as highlighting' }
+                        {
+                            tag : 'h2',
+                            content : [
+                                'you can personalise code ',
+                                { block : 'text-fx', mods : { type : 'case' }, content : 'shape' }
+                            ]
+                        },
+                        { tag : 'h2', content : 'for different viewers' },
+                        {
+                            tag : 'h1',
+                            content : [
+                                'as well as ',
+                                { block : 'text-fx', mods : { type : 'color' }, content : 'highlighting' },
+                                '!'
+                            ]
+                        }
                     ]
                 },
             [

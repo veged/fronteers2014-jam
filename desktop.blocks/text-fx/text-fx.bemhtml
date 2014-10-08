@@ -1,0 +1,9 @@
+block('text-fx')(
+    tag()('span'),
+    js()(true),
+    content()(function() {
+        return this.ctx.content.split('').map(
+            function(s) { return { elem : 'symbol', content : s };
+        })
+    })
+)
