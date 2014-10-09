@@ -8,7 +8,7 @@ provide(BEMDOM.decl({ block : this.name }, {
                 this._slides = this.findBlocksInside('slide');
                 this
                     .bindToDoc('keydown', this._onKeyDown)
-                    .bindToDoc('click dblclick', this._onClick)
+                    .bindToDoc('pointerclick', this._onPointerClick)
                     .bindToWin('hashchange', this._onHashChange)
                     ._onHashChange();
             }
@@ -48,7 +48,7 @@ provide(BEMDOM.decl({ block : this.name }, {
         }
     },
 
-    _onClick : function(e) {
+    _onPointerClick : function(e) {
         var view = $(e.view),
             width = view.width(),
             height = view.height(),
