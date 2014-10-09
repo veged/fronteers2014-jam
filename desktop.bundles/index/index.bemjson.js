@@ -145,13 +145,19 @@ return {
                     block : 'slide',
                     mods : { image: true },
                     image : 'shapes_4.jpg',
-                    content : {
-                        tag : 'h1',
-                        content : [
-                            'very few tools for deeper structural code ',
-                            { block : 'text-fx', mods : { type : 'case' }, content : 'shaping' },
-                        ]
-                    }
+                    content : [
+                        {
+                            tag : 'h1',
+                            content : 'very few tools'
+                        },
+                        {
+                            tag : 'h2',
+                            content : [
+                                'for deeper structural code ',
+                                { block : 'text-fx', mods : { type : 'case' }, content : 'shaping' },
+                            ]
+                        }
+                    ]
                 },
                 [
                     { tag : 'h1', content : 'Krasota.js' },
@@ -180,7 +186,7 @@ return {
                         {
                             elem : 'side-by-side',
                             left : { block : 'yajsh', content : '{ a: 1, b: 2 };\n\n[1, 2, 3];\n\nwhile(true) f();' },
-                            right : { block : 'yajsh', content : '{ a : 1, b : 2 };\n\n[ 1, 2, 3 ];\n\nwhile ( true ) f();' },
+                            right : { block : 'yajsh', content : '{ a : 1, b : 2 };\n\n[ 1, 2, 3 ];\n\nwhile ( true ) f ();' },
                         },
                     ],
                     [
@@ -225,12 +231,9 @@ return {
                 },
             [
                 { tag : 'h1', content : 'Thank you!' },
-                { tag : 'h2', content : 'Sergey Berezhnoy' },
-                { tag : 'h3', content : '@veged' },
-                { tag : 'br'},
+                { tag : 'h3', content : 'Sergey @veged Berezhnoy' },
                 { tag : 'h2', content : 'Yet Another JavaScript Highlighter' },
                 { tag : 'h3', content : { tag : 'a', attrs : { href : 'https://github.com/veged/yajsh' }, content : 'github.com/veged/yajsh' } },
-                { tag : 'br'},
                 { tag : 'h2', content : 'Krasota.js' },
                 { tag : 'h3', content : { tag : 'a', attrs : { href : 'https://github.com/veged/krasota.js' }, content : 'github.com/veged/krasota.js' } }
             ],
